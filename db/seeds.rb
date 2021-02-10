@@ -5,9 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-
-
 require 'faker'
 
 10.times do 
@@ -20,13 +17,12 @@ end
      User.create(
          first_name: Faker::Name.first_name, 
          last_name: Faker::Name.last_name, 
-         email: Faker::Internet.email, age: Faker::Number.number(digits: 2), 
+         email: Faker::Internet.email, 
+         age: Faker::Number.number(digits: 2), 
          description: Faker::Lorem.sentence(word_count: 3),
          city_id: City.all.sample.id
          )
 end 
-
-
 
 20.times do 
      Gossip.create(

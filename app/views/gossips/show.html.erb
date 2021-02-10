@@ -16,4 +16,12 @@
     <button type="button" class="btn btn-warning"><%= link_to 'Show', user_path(@gossip.user.id) %></button>
     </h2>
   </p>
+
+
+  <form action="gossips_path" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="text" name="gossip_text>
+  <input type="submit" value="Valider">
+</form>
+
 </div>

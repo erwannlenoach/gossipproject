@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :users
 
+  resources :cities
+
   get 'pages/welcome', to: 'pages#welcome'
   get 'pages/contact', to: 'pages#contact'
   get 'pages/team', to: 'pages#team'

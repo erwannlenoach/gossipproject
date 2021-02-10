@@ -1,22 +1,30 @@
 
 <div class="container">
 
-<h1>Hello peuple de THP, bien le bonjour ! 😁</h1>
-<p>Bienvenue sur notre site de gossip !</p>
+  <h1>Hello peuple de THP, bien le bonjour ! 😁</h1>
 
-
-<div class="row">
-  <%= @gossips.each do |gossip| %>  
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title"><%= gossip.title %></h5>
-          <p class="card-text"><%= gossip.content %></p>
-          <p class="card-text">created by : <%= gossip.user.last_name %><%= gossip.user.last_name %></p>
-          <button type="button" class="btn btn-warning"><%= link_to "show", gossip %></button>       
-          </div>
+  <p>Bienvenue sur notre site de gossip !</p>
+  
+  <div class="row">
+    <%= @gossips.each do |gossip| %>  
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= gossip.title %></h5>
+            <p class="card-text"><%= gossip.content %></p>
+            <p class="card-text">created by : <%= gossip.user.last_name %><%= gossip.user.last_name %></p>
+            <button type="button" class="btn btn-warning"><%= link_to "show", gossip %></button>       
+            </div>
+        </div>
       </div>
-    </div>
-    <% end %>
+      <% end %>
+  </div>
+
+  <form action= <%= gossips_path %> method="POST">
+    <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+    <input type="text" name="gossip_text">
+    <input type="submit" value="Valider">
+  </form>
+  
 </div>
 
