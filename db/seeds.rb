@@ -26,8 +26,8 @@ end
 
 20.times do 
      Gossip.create(
-         title: Faker::Quote.yoda, 
-         content: Faker::Lorem.sentence(word_count: 9),
+         title: Faker::TvShows::HowIMetYourMother.catch_phrase , 
+         content: Faker::TvShows::HowIMetYourMother.quote,
          user_id: User.all.sample.id
          )
 end 

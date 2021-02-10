@@ -37,20 +37,23 @@ class GossipsController < ApplicationController
         end
     
      def create
-        gossip = Gossip.create(post_params)
+        @gossip = Gossip.create(post_params)
         redirect_to gossips_path
         
         # Méthode qui créé un potin à partir du contenu du formulaire de new.html.erb, soumis par l'utilisateur
         # pour info, le contenu de ce formulaire sera accessible dans le hash params (ton meilleur pote)
         # Une fois la création faite, on redirige généralement vers la méthode show (pour afficher le potin créé)
     end
-    
+        
     def post_params 
         post_params = params.require(:gossip).permit(:title, :content)
     end 
 
     def destroy
-        # Méthode qui récupère le potin concerné et le détruit en base
+       @gossip = Gossip.find(params[:id])
+       @gossip.destroy
+       redirect_to gossips_path
+       # Méthode qui récupère le potin concerné et le détruit en base
         # Une fois la suppression faite, on redirige généralement vers la méthode index (pour afficher la liste à jour)
     end
 
