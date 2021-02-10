@@ -10,22 +10,6 @@ class GossipsController < ApplicationController
         @gossip = Gossip.find(params[:id])
     end
 
-    def new
-
-    @gossip = Gossip.new # Méthode qui crée un potin vide et l'envoie à une view qui affiche le formulaire pour 'le remplir' (new.html.erb)
-
-    end
-
-    def create
-        @gossip = Gossip.new
-        post_params = params.require(:gossip).permit(:title, :content)
-        gossip = Gossip.create(post_params)
-        redirect_to gossips_path
-    
-        # Méthode qui créé un potin à partir du contenu du formulaire de new.html.erb, soumis par l'utilisateur
-        # pour info, le contenu de ce formulaire sera accessible dans le hash params (ton meilleur pote)
-        # Une fois la création faite, on redirige généralement vers la méthode show (pour afficher le potin créé)
-    end
 
     def edit
     
@@ -37,7 +21,6 @@ class GossipsController < ApplicationController
     def update
 
      @gossip = Gossip.find(params[:id])
-     post_params = params.require(:gossip).permit(:title, :content)
      @gossip.update(post_params)
      redirect_to gossip_path
 
@@ -45,6 +28,26 @@ class GossipsController < ApplicationController
         # pour info, le contenu de ce formulaire sera accessible dans le hash params
         # Une fois la modification faite, on redirige généralement vers la méthode show (pour afficher le potin modifié)
     end
+
+    def new
+
+        @gossip = Gossip.new
+        # Méthode qui crée un potin vide et l'envoie à une view qui affiche le formulaire pour 'le remplir' (new.html.erb)
+    
+        end
+    
+     def create
+        gossip = Gossip.create(post_params)
+        redirect_to gossips_path
+        
+        # Méthode qui créé un potin à partir du contenu du formulaire de new.html.erb, soumis par l'utilisateur
+        # pour info, le contenu de ce formulaire sera accessible dans le hash params (ton meilleur pote)
+        # Une fois la création faite, on redirige généralement vers la méthode show (pour afficher le potin créé)
+    end
+    
+    def post_params 
+        post_params = params.require(:gossip).permit(:title, :content)
+    end 
 
     def destroy
         # Méthode qui récupère le potin concerné et le détruit en base
