@@ -20,11 +20,7 @@
       <% end %>
   </div>
 
-  <form action= <%= gossips_path %> method="POST">
-    <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
-    <input type="text" name="gossip_text">
-    <input type="submit" value="Valider">
-  </form>
-  
+  <button type="button" class="btn btn-warning"><%= link_to "new", gossip %></button>   
+
 </div>
 

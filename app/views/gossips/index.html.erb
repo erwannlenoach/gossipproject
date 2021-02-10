@@ -1,0 +1,14 @@
+<div class="row">
+<%= @gossips.each do |gossip| %>  
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= gossip.title %></h5>
+        <p class="card-text"><%= gossip.content %></p>
+        <p class="card-text">created by : <%= gossip.user.last_name %><%= gossip.user.last_name %></p>
+        <button type="button" class="btn btn-warning"><%= link_to "show", gossip %></button>       
+        </div>
+    </div>
+  </div>
+  <% end %>
+</div>
