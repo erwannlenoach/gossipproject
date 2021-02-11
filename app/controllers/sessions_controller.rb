@@ -1,7 +1,9 @@
 class SessionsController < ApplicationController
 
+    def new 
   
-    
+    end 
+
     def create
             # cherche s'il existe un utilisateur en base avec l’e-mail
       user = User.find_by(email: params[:email])
@@ -13,6 +15,11 @@ class SessionsController < ApplicationController
               redirect_to sessions_path, :danger => "Combinaison email/mot de passe erronée !"
             end
           
+    end
+
+    def destroy
+        session[:user_id] = nil
+        redirect_to pages_welcome_path, notice: "Logged out!"
     end
 
 end

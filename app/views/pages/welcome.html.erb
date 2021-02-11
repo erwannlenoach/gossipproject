@@ -1,8 +1,6 @@
 
 <div class="container">
-
-  <h1>Bienvenue <%= User.find_by(id: session[:user_id]).first_name %> !</h1>
-
+  
   <h2> Ici ça gossip à fond 😁</h2> 
   
   <div class="row">
@@ -20,7 +18,7 @@
       <% end %>
   </div>
 
-  <button type="button" class="btn btn-warning"><%= link_to "new", new_gossip_path %></button>   
+
 
 </div>
 
