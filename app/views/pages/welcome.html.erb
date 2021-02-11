@@ -1,14 +1,10 @@
 
 <div class="container">
 
-  <h2>Bienvenue <%= User.find_by(id: session[:user_id]).first_name %> !</h2>
+  <h1>Bienvenue <%= User.find_by(id: session[:user_id]).first_name %> !</h1>
 
-  <h1>Hello peuple de THP, bien le bonjour ! 😁</h1>
-
-  <p>Bienvenue sur notre site de gossip !</p>
+  <h2> Ici ça gossip à fond 😁</h2> 
   
-
-
   <div class="row">
     <% @gossips.each do |gossip| %>  
       <div class="col-sm-6">
