@@ -1,18 +1,22 @@
 
 <div class="container">
 
+  <h2>Bienvenue <%= User.find_by(id: session[:user_id]).first_name %> !</h2>
+
   <h1>Hello peuple de THP, bien le bonjour ! 😁</h1>
 
   <p>Bienvenue sur notre site de gossip !</p>
   
+
+
   <div class="row">
-    <%= @gossips.each do |gossip| %>  
+    <% @gossips.each do |gossip| %>  
       <div class="col-sm-6">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title"><%= gossip.title %></h5>
             <p class="card-text"><%= gossip.content %></p>
-            <p class="card-text">created by : <%= gossip.user.last_name %><%= gossip.user.last_name %></p>
+            <p class="card-text">created by : <%= gossip.user.first_name %><%= gossip.user.last_name %></p>
             <button type="button" class="btn btn-warning"><%= link_to "show", gossip%></button>       
             </div>
         </div>

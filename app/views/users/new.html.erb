@@ -1,0 +1,33 @@
+<div class="container">
+
+<h1>Nouvel utilisateur</h1>
+    <%= form_tag users_path do %>   
+   
+    <div>   
+        <%= label_tag :first_name %><br>   
+        <%= text_field_tag :first_name %>   
+    </div>   
+
+    <div>   
+        <%= label_tag :last_name %><br>   
+        <%= text_field_tag :last_name %>   
+    </div>   
+
+    <div>   
+        <%= label_tag :email %><br>   
+        <%= text_field_tag :email %>   
+    </div>   
+
+
+    <div>
+        <%= label_tag :password %><br>   
+        <%= password_field_tag :password %>   
+    </div>
+
+    <div>   
+        <%= submit_tag "Log In" %>   
+    </div>   
+
+    <% end %>  
+
+</div>

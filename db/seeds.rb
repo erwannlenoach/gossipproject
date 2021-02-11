@@ -18,10 +18,7 @@ end
          first_name: Faker::Name.first_name, 
          last_name: Faker::Name.last_name, 
          email: Faker::Internet.email, 
-         age: Faker::Number.number(digits: 2), 
-         description: Faker::Lorem.sentence(word_count: 3),
-         password_digest: Faker::String.random(length: 4),
-         city_id: City.all.sample.id
+         password_digest: Faker::String.random(length: 8)
          )
 end 
 

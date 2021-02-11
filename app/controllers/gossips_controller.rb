@@ -1,5 +1,7 @@
 class GossipsController < ApplicationController
 
+
+
     def index
         # Méthode qui récupère tous les potins et les envoie à la view index (index.html.erb) pour affichage
         @gossips = Gossip.all
@@ -30,10 +32,8 @@ class GossipsController < ApplicationController
     end
 
     def new
-
         @gossip = Gossip.new
         # Méthode qui crée un potin vide et l'envoie à une view qui affiche le formulaire pour 'le remplir' (new.html.erb)
-    
         end
     
      def create
